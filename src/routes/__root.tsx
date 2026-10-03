@@ -18,16 +18,12 @@ import { BtnInner } from "@/components/site/ui";
 
 function NotFoundComponent() {
   return (
-    <>
-      <Header />
-      <div className="container-site flex min-h-[80vh] flex-col items-center justify-center pt-32 text-center">
+    <div className="container-site flex min-h-[80vh] flex-col items-center justify-center pt-32 text-center">
         <p className="eyebrow">Error 404</p>
         <h1 className="h-display mt-6">Page not found.</h1>
         <p className="mt-4 max-w-md text-muted-foreground">The page you're looking for doesn't exist or has been moved.</p>
         <Link to="/" className="btn btn-dark group mt-10"><BtnInner label="Back to Home" /></Link>
       </div>
-      <Footer />
-    </>
   );
 }
 
