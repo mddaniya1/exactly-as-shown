@@ -33,7 +33,7 @@ export function Reveal({ children, className = "", delay = 0, as: Tag = "div" }:
     if (!el) return;
     const io = new IntersectionObserver(
       ([e]) => {
-        if (e.isIntersecting) {
+        if (e?.isIntersecting) {
           el.classList.add("is-in");
           io.disconnect();
         }
@@ -51,14 +51,14 @@ export function Reveal({ children, className = "", delay = 0, as: Tag = "div" }:
   );
 }
 
-export function CountUp({ to, prefix = "", suffix = "", duration = 1800 }: { to: number; prefix?: string; suffix?: string; duration?: number }) {
+export function CountUp({ to, prefix = "", suffix = "", duration = 1800 }: { to: number; prefix?: string | undefined; suffix?: string | undefined; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const [val, setVal] = useState(0);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const io = new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting) return;
+      if (!e?.isIntersecting) return;
       io.disconnect();
       const start = performance.now();
       const tick = (t: number) => {

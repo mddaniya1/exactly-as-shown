@@ -76,7 +76,7 @@ function Contact() {
   );
 }
 
-function Field({ name, label, type = "text", error }: { name: string; label: string; type?: string; error?: string }) {
+function Field({ name, label, type = "text", error }: { name: string; label: string; type?: string; error?: string | undefined }) {
   return (
     <label className="flex flex-col gap-2 text-sm">
       {label}

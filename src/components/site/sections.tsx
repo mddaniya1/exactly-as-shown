@@ -89,9 +89,9 @@ export function Testimonials() {
   const x = useRef(0);
   const n = testimonials.length;
   const go = (d: number) => setI((v) => (v + d + n) % n);
-  const ts = (e: TouchEvent) => (x.current = e.touches[0].clientX);
+  const ts = (e: TouchEvent) => (x.current = e.touches[0]?.clientX ?? 0);
   const te = (e: TouchEvent) => {
-    const dx = e.changedTouches[0].clientX - x.current;
+    const dx = (e.changedTouches[0]?.clientX ?? 0) - x.current;
     if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
   };
   return (
