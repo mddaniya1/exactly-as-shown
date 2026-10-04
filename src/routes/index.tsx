@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { company, images, posts, projects, services } from "@/lib/site-data";
 import { BtnInner, CountUp, Reveal } from "@/components/site/ui";
-import { Awards, Cta, PostCard, Process, ProjectCard, Testimonials } from "@/components/site/sections";
+import { Awards, PostCard, Process, ProjectCard, Testimonials } from "@/components/site/sections";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -141,7 +141,6 @@ function Home() {
         </div>
       </section>
 
-      <Cta />
     </>
   );
 }

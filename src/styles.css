@@ -64,6 +64,9 @@
   --ink: oklch(0.17 0.008 60);
   --ink-foreground: oklch(0.96 0.008 80);
   --overlay: oklch(0.12 0.01 60 / 0.55);
+  --footer-brown: oklch(0.315 0.075 53);
+  --footer-input: oklch(0.355 0.073 53);
+  --footer-mist: oklch(0.945 0.004 65);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -143,6 +146,83 @@
 
 @keyframes marquee { to { transform: translateX(-50%); } }
 @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.15) translate(-2%, -2%); } }
+
+.footer-invitation {
+  min-height: 800px;
+  padding: 120px 20px 82px;
+  background: linear-gradient(to bottom, var(--footer-mist) 0%, oklch(0.73 0.022 60) 27%, oklch(0.47 0.059 54) 61%, var(--footer-brown) 100%);
+}
+.footer-invitation-title {
+  font-size: clamp(2.4rem, 6vw, 5.25rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+.footer-invitation-title em { font-family: Georgia, serif; font-weight: 500; }
+.footer-invitation-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  margin-top: 38px;
+  padding: 9px 17px;
+  border-radius: 999px;
+  background: var(--ink-foreground);
+  color: var(--footer-brown);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  transition: background-color .2s, transform .2s;
+}
+.footer-invitation-link:hover { transform: translateY(-2px); }
+.footer-main { background: var(--footer-brown); }
+.footer-content {
+  max-width: 1440px;
+  min-height: 574px;
+  margin-inline: auto;
+  padding: 68px 5% 35px;
+  display: grid;
+  grid-template-columns: 44% 56%;
+  grid-template-rows: 1fr auto;
+}
+.footer-contact { min-width: 0; }
+.footer-brand { display: inline-flex; align-items: center; gap: 10px; font-size: 30px; font-weight: 700; line-height: 1.2; }
+.footer-brand svg { width: 30px; height: 30px; flex: none; }
+.footer-brand-period { color: var(--ink-foreground); }
+.footer-contact address { margin-top: 38px; }
+.footer-info-block + .footer-info-block { margin-top: 28px; }
+.footer-label { display: block; font-size: 18px; font-weight: 500; line-height: 1.4; letter-spacing: 0; }
+.footer-info-value { display: block; max-width: 360px; margin-top: 12px; font-size: 29px; line-height: 1.15; font-weight: 700; }
+.footer-hover:hover, .footer-column-links a:hover { opacity: .7; }
+.footer-newsletter { max-width: 518px; margin-top: 35px; }
+.footer-email-wrap { display: flex; align-items: center; gap: 8px; height: 69px; margin-top: 10px; padding: 7px 8px 7px 25px; border-radius: 999px; background: var(--footer-input); }
+.footer-email-wrap input { width: 100%; min-width: 0; flex: 1; border: 0; outline: 0; background: transparent; color: var(--ink-foreground); font-size: 17px; }
+.footer-email-wrap input::placeholder { color: var(--ink-foreground); opacity: .7; }
+.footer-email-wrap input[aria-invalid="true"] { outline: 2px solid var(--destructive); outline-offset: 5px; }
+.footer-submit { height: 52px; padding-inline: 22px; flex: none; border-radius: 999px; background: var(--ink-foreground); color: var(--footer-brown); font-size: 17px; font-weight: 700; }
+.footer-submit:hover { background: var(--ink-foreground); opacity: .85; }
+.footer-submit svg { width: 21px; height: 21px; }
+.footer-status { min-height: 22px; padding-top: 6px; font-size: 14px; }
+.footer-navigation { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding-top: 65px; }
+.footer-column-links { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 20px; }
+.footer-column-links a { font-size: 20px; font-weight: 600; line-height: 1.3; transition: opacity .2s; }
+.footer-legal { grid-column: 2; display: flex; justify-content: space-between; gap: 20px; font-size: 17px; }
+
+@media (max-width: 767px) {
+  .footer-invitation { min-height: 440px; padding: 110px 20px 68px; }
+  .footer-invitation-title { font-size: 38px; line-height: 1.12; }
+  .footer-invitation-link { margin-top: 28px; }
+  .footer-content { min-height: 0; padding: 50px 20px 32px; display: block; }
+  .footer-brand { font-size: 36px; gap: 10px; }
+  .footer-brand svg { width: 32px; height: 32px; }
+  .footer-contact address { margin-top: 28px; }
+  .footer-info-block + .footer-info-block { margin-top: 24px; }
+  .footer-info-value { max-width: 350px; margin-top: 18px; font-size: 28px; }
+  .footer-newsletter { margin-top: 24px; }
+  .footer-email-wrap { margin-top: 18px; }
+  .footer-navigation { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; row-gap: 42px; padding-top: 35px; }
+  .footer-column-links { gap: 14px; margin-top: 18px; }
+  .footer-legal { align-items: center; flex-direction: column; gap: 13px; margin-top: 54px; text-align: center; font-size: 20px; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

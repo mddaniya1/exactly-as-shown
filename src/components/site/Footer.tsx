@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
+import { ArrowRight, Fingerprint } from "lucide-react";
 import { company } from "@/lib/site-data";
-import { BtnInner } from "./ui";
+import { Button } from "@/components/ui/button";
 
 export function Footer() {
   const [email, setEmail] = useState("");
@@ -18,57 +19,83 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-ink text-ink-foreground">
-      <div className="container-site grid gap-14 py-20 lg:grid-cols-[1.3fr_1fr]">
-        <div>
-          <h2 className="h-section max-w-md">Stay inspired with Designer Elite.</h2>
-          <form onSubmit={submit} noValidate className="mt-8 flex max-w-md flex-col gap-3 sm:flex-row">
-            <label htmlFor="nl" className="sr-only">Email address</label>
-            <input
-              id="nl"
-              type="email"
-              value={email}
-              onChange={(e) => { setEmail(e.target.value); if (state !== "loading") setState("idle"); }}
-              placeholder="Your email"
-              aria-invalid={state === "error"}
-              className="field min-w-0 flex-1 border-ink-foreground/20 bg-transparent text-ink-foreground placeholder:text-ink-foreground/50"
-            />
-            <button type="submit" disabled={state === "loading"} className="btn btn-light group justify-between">
-              <BtnInner label={state === "loading" ? "Joining…" : state === "done" ? "Joined" : "Join Us"} />
-            </button>
-          </form>
-          <p className="mt-3 h-5 text-sm" role="status">
-            {state === "error" && <span className="text-destructive">Please enter a valid email address.</span>}
-            {state === "done" && <span className="text-ink-foreground/80">Thank you — you're on the list.</span>}
-          </p>
-          <address className="mt-8 space-y-1 not-italic text-ink-foreground/70">
-            <p>{company.city}, {company.country}</p>
-            <p><a className="nav-link" href={company.whatsapp}>{company.phone}</a></p>
-            <p><a className="nav-link break-all" href={`mailto:${company.email}`}>{company.email}</a></p>
-          </address>
-        </div>
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
-          <FooterCol title="Main Pages">
-            <Link to="/" className="nav-link">Home</Link>
-            <Link to="/about" className="nav-link">About Us</Link>
-            <Link to="/portfolios" className="nav-link">Portfolio</Link>
-            <Link to="/blog" className="nav-link">Blog</Link>
-          </FooterCol>
-          <FooterCol title="Others">
-            <Link to="/contact" className="nav-link">Contact</Link>
-            <Link to="/services/$slug" params={{ slug: "interior-design" }} className="nav-link">Services</Link>
-            <a href={company.whatsapp} className="nav-link">WhatsApp</a>
-          </FooterCol>
-          <FooterCol title="Socials">
-            <a href={company.facebook} target="_blank" rel="noreferrer" className="nav-link">Facebook</a>
-            <a href={company.instagram} target="_blank" rel="noreferrer" className="nav-link">Instagram</a>
-            <a href={company.linkedin} target="_blank" rel="noreferrer" className="nav-link">LinkedIn</a>
-          </FooterCol>
-        </div>
+    <footer className="terion-footer text-ink-foreground">
+      <div className="footer-invitation flex flex-col items-center justify-end text-center">
+        <h2 className="footer-invitation-title">Let’s Design Your<br /><em>Dream Space.</em></h2>
+        <Link to="/contact" className="footer-invitation-link group">
+          Get Started Now <ArrowRight aria-hidden="true" size={18} strokeWidth={1.7} className="transition-transform group-hover:translate-x-1" />
+        </Link>
       </div>
-      <div className="container-site flex flex-col justify-between gap-2 border-t border-ink-foreground/10 py-6 text-sm text-ink-foreground/60 sm:flex-row">
-        <p>© 2026 Designer Elite. All rights reserved.</p>
-        <p>Interior · Architecture · Furniture · Lighting</p>
+
+      <div className="footer-main">
+        <div className="footer-content">
+          <div className="footer-contact">
+            <Link to="/" className="footer-brand" aria-label="Designer Elite home">
+              <Fingerprint aria-hidden="true" strokeWidth={1.8} />
+              <span>Designer Elite<span className="footer-brand-period">.</span></span>
+            </Link>
+
+            <address className="not-italic">
+              <div className="footer-info-block">
+                <p className="footer-label">Address</p>
+                <p className="footer-info-value">{company.city}, {company.country}</p>
+              </div>
+              <div className="footer-info-block">
+                <p className="footer-label">Phone</p>
+                <a className="footer-info-value footer-hover" href={company.whatsapp}>{company.phone}</a>
+              </div>
+            </address>
+
+            <form onSubmit={submit} noValidate className="footer-newsletter">
+              <label htmlFor="footer-email" className="footer-label">Enter Your Email</label>
+              <div className="footer-email-wrap">
+                <input
+                  id="footer-email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => { setEmail(e.target.value); if (state !== "loading") setState("idle"); }}
+                  placeholder="hello@gmail.com"
+                  aria-invalid={state === "error"}
+                />
+                <Button type="submit" disabled={state === "loading"} className="footer-submit">
+                  {state === "loading" ? "Joining…" : state === "done" ? "Joined" : "Join Us"}
+                  <ArrowRight aria-hidden="true" size={20} strokeWidth={1.7} />
+                </Button>
+              </div>
+              <p className="footer-status" role="status">
+                {state === "error" && "Please enter a valid email address."}
+                {state === "done" && "Thank you — you're on the list."}
+              </p>
+            </form>
+          </div>
+
+          <nav className="footer-navigation" aria-label="Footer">
+            <FooterCol title="Main Pages">
+              <Link to="/">Home</Link>
+              <Link to="/about">About Us</Link>
+              <Link to="/" hash="service">Services</Link>
+              <Link to="/portfolios">Portfolios</Link>
+              <Link to="/contact">Contact Us</Link>
+            </FooterCol>
+            <FooterCol title="Others">
+              <Link to="/services/$slug" params={{ slug: "interior-design" }}>Interior Design</Link>
+              <Link to="/services/$slug" params={{ slug: "architecture" }}>Architecture</Link>
+              <Link to="/blog">Blog</Link>
+              <a href={`mailto:${company.email}`}>Email Us</a>
+              <a href={company.whatsapp}>WhatsApp</a>
+            </FooterCol>
+            <FooterCol title="Socials">
+              <a href={company.facebook} target="_blank" rel="noreferrer">Facebook</a>
+              <a href={company.instagram} target="_blank" rel="noreferrer">Instagram</a>
+              <a href={company.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+            </FooterCol>
+          </nav>
+
+          <div className="footer-legal">
+            <p>© 2026 Copyright - Designer Elite</p>
+            <p>All rights reserved.</p>
+          </div>
+        </div>
       </div>
     </footer>
   );
@@ -76,9 +103,9 @@ export function Footer() {
 
 function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div>
-      <h3 className="mb-5 text-sm uppercase tracking-[0.14em] text-ink-foreground/50">{title}</h3>
-      <div className="flex flex-col items-start gap-3">{children}</div>
+    <div className="footer-column">
+      <h3 className="footer-label">{title}</h3>
+      <div className="footer-column-links">{children}</div>
     </div>
   );
 }
