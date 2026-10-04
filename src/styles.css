@@ -151,7 +151,7 @@
 
 .footer-invitation {
   min-height: 800px;
-  padding: 120px 20px 82px;
+  padding: 120px 20px 96px;
   background: linear-gradient(to bottom, var(--footer-mist) 0%, var(--footer-highlight) 27%, var(--footer-mid) 61%, var(--footer-brown) 100%);
 }
 .terion-footer { font-family: "Instrument Sans", sans-serif; }
@@ -211,15 +211,15 @@
 .footer-legal { grid-column: 2; display: flex; justify-content: space-between; gap: 20px; font-size: 17px; }
 
 @media (max-width: 767px) {
-  .footer-invitation { min-height: 440px; padding: 110px 20px 68px; }
+  .footer-invitation { min-height: 400px; padding: 110px 20px 55px; }
   .footer-invitation-title { font-size: 38px; line-height: 1.1; }
   .footer-invitation-link { margin-top: 28px; }
-  .footer-content { min-height: 0; padding: 50px 20px 32px; display: block; }
+  .footer-content { min-height: 0; padding: 57px 20px 32px; display: block; }
   .footer-brand { font-size: 38px; gap: 5px; }
   .footer-brand svg { width: 32px; height: 32px; }
   .footer-contact address { margin-top: 28px; }
   .footer-info-block + .footer-info-block { margin-top: 24px; }
-  .footer-info-value { max-width: 230px; margin-top: 18px; font-size: 28px; }
+  .footer-info-value { max-width: 350px; margin-top: 18px; font-size: 28px; }
   .footer-newsletter { margin-top: 24px; }
   .footer-email-wrap { margin-top: 18px; }
   .footer-navigation { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; row-gap: 42px; padding-top: 35px; }
