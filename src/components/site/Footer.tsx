@@ -6,16 +6,13 @@ import { Button } from "@/components/ui/button";
 
 export function Footer() {
   const [email, setEmail] = useState("");
-  const [state, setState] = useState<"idle" | "error" | "loading" | "done">("idle");
+  const [state, setState] = useState<"idle" | "error">("idle");
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return setState("error");
-    setState("loading");
-    setTimeout(() => {
-      setState("done");
-      setEmail("");
-    }, 700);
+    setState("idle");
+    window.location.href = `mailto:${company.email}?subject=${encodeURIComponent("Join Designer Elite updates")}&body=${encodeURIComponent(`Please add ${email.trim()} to your updates list.`)}`;
   };
 
   return (
@@ -53,18 +50,17 @@ export function Footer() {
                   id="footer-email"
                   type="email"
                   value={email}
-                  onChange={(e) => { setEmail(e.target.value); if (state !== "loading") setState("idle"); }}
+                  onChange={(e) => { setEmail(e.target.value); setState("idle"); }}
                   placeholder="hello@gmail.com"
                   aria-invalid={state === "error"}
                 />
-                <Button type="submit" disabled={state === "loading"} className="footer-submit">
-                  {state === "loading" ? "Joining…" : state === "done" ? "Joined" : "Join Us"}
+                <Button type="submit" className="footer-submit">
+                  Join Us
                   <ArrowRight aria-hidden="true" size={20} strokeWidth={1.7} />
                 </Button>
               </div>
               <p className="footer-status" role="status">
                 {state === "error" && "Please enter a valid email address."}
-                {state === "done" && "Thank you — you're on the list."}
               </p>
             </form>
           </div>

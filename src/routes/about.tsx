@@ -10,6 +10,8 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Meet Designer Elite and founder Syed Sheeraz Ali — 10+ years designing interiors in Karachi." },
       { property: "og:title", content: "About Us — Designer Elite" },
       { property: "og:description", content: "A Karachi studio for interiors, architecture, furniture and lighting." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: About,

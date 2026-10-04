@@ -11,6 +11,8 @@ export const Route = createFileRoute("/portfolios/")({
       { name: "description", content: "Residential, commercial and corporate projects by Designer Elite, Karachi." },
       { property: "og:title", content: "Portfolio — Designer Elite" },
       { property: "og:description", content: "Browse interiors, architecture and lighting projects." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Portfolios,

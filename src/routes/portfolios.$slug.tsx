@@ -18,6 +18,8 @@ export const Route = createFileRoute("/portfolios/$slug")({
         { name: "description", content: p.body },
         { property: "og:title", content: `${p.title} — Designer Elite` },
         { property: "og:description", content: p.body },
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
     };
   },

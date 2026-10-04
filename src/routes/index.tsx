@@ -10,6 +10,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Interior design, architecture, bespoke furniture and lighting design by Designer Elite, Karachi." },
       { property: "og:title", content: "Designer Elite — Luxury Interior Design in Karachi" },
       { property: "og:description", content: "Interiors crafted for comfort and style. Residential, commercial and corporate." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,

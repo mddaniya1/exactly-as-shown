@@ -10,6 +10,8 @@ export const Route = createFileRoute("/blog/")({
       { name: "description", content: "Design ideas, material guides and lighting tips from Designer Elite." },
       { property: "og:title", content: "Journal — Designer Elite" },
       { property: "og:description", content: "Ideas and insights on interiors, furniture and light." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Blog,
