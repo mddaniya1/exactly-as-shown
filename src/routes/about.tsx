@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { company, images } from "@/lib/site-data";
 import { CountUp, PageHero, Reveal } from "@/components/site/ui";
-import { Awards, Cta, Process } from "@/components/site/sections";
+import { Awards, Process } from "@/components/site/sections";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -45,7 +45,6 @@ function About() {
       </section>
       <Process />
       <Awards />
-      <Cta />
     </>
   );
 }

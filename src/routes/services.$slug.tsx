@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { services } from "@/lib/site-data";
 import { BtnInner, Reveal } from "@/components/site/ui";
-import { Cta, Process } from "@/components/site/sections";
+import { Process } from "@/components/site/sections";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -56,7 +56,6 @@ function ServicePage() {
         </div>
       </section>
       <Process />
-      <Cta />
     </>
   );
 }

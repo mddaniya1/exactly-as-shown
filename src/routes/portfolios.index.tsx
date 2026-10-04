@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { projects } from "@/lib/site-data";
 import { PageHero, Reveal } from "@/components/site/ui";
-import { Cta, ProjectCard } from "@/components/site/sections";
+import { ProjectCard } from "@/components/site/sections";
 
 export const Route = createFileRoute("/portfolios/")({
   head: () => ({
@@ -35,7 +35,6 @@ function Portfolios() {
           ))}
         </div>
       </section>
-      <Cta />
     </>
   );
 }

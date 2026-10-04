@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { projects } from "@/lib/site-data";
 import { BtnInner, Reveal } from "@/components/site/ui";
-import { Cta, ProjectCard } from "@/components/site/sections";
+import { ProjectCard } from "@/components/site/sections";
 
 export const Route = createFileRoute("/portfolios/$slug")({
   loader: ({ params }) => {
@@ -51,7 +51,6 @@ function ProjectPage() {
         <h2 className="h-section mb-10">More projects</h2>
         <div className="grid gap-10 md:grid-cols-2">{more.map((x) => <ProjectCard key={x.slug} p={x} />)}</div>
       </section>
-      <Cta />
     </>
   );
 }
