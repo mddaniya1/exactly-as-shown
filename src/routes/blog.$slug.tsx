@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { posts } from "@/lib/site-data";
 import { BtnInner, Reveal } from "@/components/site/ui";
-import { Cta, PostCard } from "@/components/site/sections";
+import { PostCard } from "@/components/site/sections";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -19,6 +19,7 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:title", content: p.title },
         { property: "og:description", content: p.excerpt },
         { property: "og:type", content: "article" },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
     };
   },
@@ -47,7 +48,6 @@ function PostPage() {
       <section className="container-site grid gap-10 pb-24 md:grid-cols-2">
         {posts.filter((x) => x.slug !== p.slug).map((x) => <PostCard key={x.slug} p={x} />)}
       </section>
-      <Cta />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { company, images, posts, projects, services } from "@/lib/site-data";
 import { BtnInner, CountUp, Reveal } from "@/components/site/ui";
-import { Awards, Cta, PostCard, Process, ProjectCard, Testimonials } from "@/components/site/sections";
+import { Awards, PostCard, Process, ProjectCard, Testimonials } from "@/components/site/sections";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -10,6 +10,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Interior design, architecture, bespoke furniture and lighting design by Designer Elite, Karachi." },
       { property: "og:title", content: "Designer Elite — Luxury Interior Design in Karachi" },
       { property: "og:description", content: "Interiors crafted for comfort and style. Residential, commercial and corporate." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,
@@ -141,7 +143,6 @@ function Home() {
         </div>
       </section>
 
-      <Cta />
     </>
   );
 }

@@ -10,6 +10,8 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Call, WhatsApp or email Designer Elite in Karachi to start your project." },
       { property: "og:title", content: "Contact — Designer Elite" },
       { property: "og:description", content: "Start your interior, architecture or furniture project today." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Contact,

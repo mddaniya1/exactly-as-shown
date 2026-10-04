@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { company, images } from "@/lib/site-data";
 import { CountUp, PageHero, Reveal } from "@/components/site/ui";
-import { Awards, Cta, Process } from "@/components/site/sections";
+import { Awards, Process } from "@/components/site/sections";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -10,6 +10,8 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Meet Designer Elite and founder Syed Sheeraz Ali — 10+ years designing interiors in Karachi." },
       { property: "og:title", content: "About Us — Designer Elite" },
       { property: "og:description", content: "A Karachi studio for interiors, architecture, furniture and lighting." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: About,
@@ -45,7 +47,6 @@ function About() {
       </section>
       <Process />
       <Awards />
-      <Cta />
     </>
   );
 }
